@@ -6,31 +6,61 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Lib {
-    private static Scanner lector = new Scanner(System.in);
-
-
-
+    private static final Scanner lector = new Scanner(System.in);
     public static String leerLinea() {
-        boolean vali =false;
         do {
             try {
                 return lector.nextLine();
-            }catch (InputMismatchException ime){
-                return "Error";
+            }catch (InputMismatchException nme){
+                System.out.println("Error: ");
             }
-        }while (vali);
+        }while (true);
     }
 
     public static int leerInt() {
-        return Integer.parseInt(leerLinea());
+        do {
+            try {
+                return Integer.parseInt(leerLinea());
+            } catch (NumberFormatException nfe) {
+                System.out.println("El valor introducido no es un número valido!");
+                System.out.println("Escribe otro numero: ");
+            }
+        } while (true);
+    }
+
+    public static int leerInt(int min, int max) {
+        do {
+            int numero = leerInt();
+
+            if (min != -1 && numero < min) {
+                System.out.println("El número no puede ser menor que: " + min);
+            } else if (max != -1 && numero > max) {
+                System.out.println("El número no puede mayor que: " + max);
+            } else {
+                return numero;
+            }
+        } while (true);
     }
 
     public static double leerDouble() {
-        return Double.parseDouble(leerLinea());
+        do {
+            try {
+                return Double.parseDouble(leerLinea());
+            } catch (NumberFormatException nfe) {
+                System.out.println("El valor introducido no es un número valido!");
+                System.out.println("Escribe otro numero: ");
+            }
+        } while (true);
     }
-
     public static float leerFloat() {
-        return Float.parseFloat(leerLinea());
+        do {
+            try {
+                return Float.parseFloat(leerLinea());
+            } catch (NumberFormatException nfe) {
+                System.out.println("El valor introducido no es un número valido!");
+                System.out.println("Escribe otro numero: ");
+            }
+        } while (true);
     }
 
     public static char leerChar(){

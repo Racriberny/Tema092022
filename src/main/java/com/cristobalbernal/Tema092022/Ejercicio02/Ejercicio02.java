@@ -10,18 +10,10 @@ public class Ejercicio02 {
         int contador = 0;
 
         for (int i = 0; i <numeroIntroducidos; i++) {
-            boolean validado = false;
-            do {
-                try {
-                    System.out.println("Escribe el numero " + (i +1));
-                    numero = Lib.leerDouble();
-                    validado = false;
-                }catch (NumberFormatException nfe){
-                    validado = true;
-                    System.out.println("Error has escrito una letra");
-                    contador++;
-                }
-            }while (validado);
+
+            System.out.println("Escribe el numero " + (i +1));
+            numero = Lib.leerDouble();
+
         }
         double mayor = numeros[0];
         for (double v : numeros) {
